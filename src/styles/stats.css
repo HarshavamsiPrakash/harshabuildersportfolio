@@ -1,117 +1,187 @@
-/* ===================== STATS ===================== */
+/* =========================================================
+   STATS SECTION – ENHANCED & ANIMATED
+   Theme: Blue + Gold + Maroon
+   ========================================================= */
 
 .stats {
-  background: #b8860b;
-  color: black;
-  padding: 60px 20px;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #0a2a43,
+    #071d30
+  );
+  padding: 100px 24px;
+  overflow: hidden;
+  color: #ffffff;
 }
 
+/* subtle gold & maroon texture */
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(242,195,90,0.14),
+    rgba(123,13,30,0.14)
+  );
+  z-index: 0;
+}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
 .stats-container {
-  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
   margin: auto;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 44px;
   text-align: center;
 }
 
-.stat-box h2 {
-  font-size: 40px;
-}
-
-.stat-box p {
-  font-weight: 600;
-}
-
-/* ===================== STATS – PROFESSIONAL ===================== */
-
-.stats {
-  background: #b8860b;
-  color: #1c1c1c;
-  padding: 80px 20px;
-}
-
-.stats-container {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  text-align: center;
-}
+/* =========================================================
+   STAT BOX
+   ========================================================= */
 
 .stat-box {
-  padding: 20px;
+  padding: 30px 22px;
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(36px);
+  animation: statsFadeUp 0.9s ease forwards;
 }
 
-.stat-box h2 {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 10px;
+/* stagger reveal */
+.stat-box:nth-child(2) { animation-delay: 0.12s; }
+.stat-box:nth-child(3) { animation-delay: 0.24s; }
+.stat-box:nth-child(4) { animation-delay: 0.36s; }
+
+/* gold underline accent */
+.stat-box::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 3px;
+  background: #f2c35a;
+  margin: 18px auto 0;
+  border-radius: 3px;
 }
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.stat-box h2 {
+  font-size: 58px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #f2c35a;
+  letter-spacing: 0.6px;
+}
+
+/* =========================================================
+   LABEL
+   ========================================================= */
 
 .stat-box p {
   font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 700;
+  color: #e6e6e6;
+  line-height: 1.6;
 }
 
-/* ===================== STATS – PROFESSIONAL UPGRADE ===================== */
+/* =========================================================
+   HOVER – SUBTLE AUTHORITY
+   ========================================================= */
 
-.stats {
-  background: #b8860b;
-  color: #1c1c1c;
-  padding: 80px 20px;
-}
-
-.stats-container {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  text-align: center;
-}
-
-.stat-box {
-  padding: 20px;
-}
-
-.stat-box h2 {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.stat-box p {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-/* SUBTLE HOVER (DESKTOP ONLY) */
 @media (min-width: 900px) {
   .stat-box {
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease;
   }
 
   .stat-box:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes statsFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
   .stats-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
   }
 
   .stat-box h2 {
-    font-size: 40px;
+    font-size: 52px;
   }
 }
 
-@media (max-width: 500px) {
+/* =========================================================
+   RESPONSIVE – MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
   .stats-container {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .stat-box h2 {
+    font-size: 46px;
+  }
+
+  .stat-box p {
+    font-size: 15.5px;
+  }
+}
+
+/* =========================================================
+   STATS – INTERACTIVE HOVER ANIMATION
+   ========================================================= */
+
+@media (min-width: 900px) {
+  .stat-box {
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .stat-box:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow:
+      0 26px 60px rgba(0,0,0,0.35);
+  }
+
+  /* number glow on hover */
+  .stat-box:hover h2 {
+    color: #ffd77a;
+    text-shadow:
+      0 0 12px rgba(242,195,90,0.65);
+  }
+
+  /* underline expand */
+  .stat-box:hover::after {
+    width: 70px;
+    transition: width 0.35s ease;
   }
 }

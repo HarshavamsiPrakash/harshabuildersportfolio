@@ -1,92 +1,178 @@
-/* ===================== SIMPLE PROFESSIONAL FOOTER ===================== */
+/* =========================================================
+   FOOTER – REFINED & PREMIUM
+   Theme: Blue + Gold + Maroon
+   ========================================================= */
 
 .footer-simple {
-  background: #0f0f0f;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 28px 20px 0;
-  color: #ccc;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #071d30,
+    #0a2a43
+  );
+  padding: 56px 24px 0;
+  color: #e0e0e0;
+  overflow: hidden;
 }
 
-/* INNER ROW */
+/* top accent strip */
+.footer-simple::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    #7b0d1e,
+    #f2c35a,
+    #0a2a43
+  );
+}
+
+/* =========================================================
+   INNER GRID
+   ========================================================= */
+
 .footer-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1.2fr;
+  grid-template-columns: 1.3fr 1fr 1.3fr;
   align-items: center;
-  gap: 40px;
+  gap: 50px;
+  padding-bottom: 36px;
+
+  opacity: 0;
+  transform: translateY(32px);
+  animation: footerFadeUp 0.9s ease forwards;
 }
 
-/* BRAND */
+/* =========================================================
+   BRAND
+   ========================================================= */
+
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 20px;
 }
 
 .footer-brand img {
-  width: 135px;
+  width: 170px;
   height: auto;
+  transition: transform 0.35s ease;
 }
 
 .footer-brand h4 {
-  font-size: 16px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 2px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
 .footer-brand p {
-  font-size: 13px;
-  color: #aaa;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f2c35a;
+  letter-spacing: 0.4px;
 }
 
-/* LINKS */
+/* logo hover */
+@media (min-width: 900px) {
+  .footer-brand:hover img {
+    transform: scale(1.06);
+  }
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
 .footer-links {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 22px;
+  gap: 30px;
   padding: 0;
   margin: 0;
 }
 
 .footer-links a {
   font-size: 14px;
-  font-weight: 600;
-  color: #ccc;
+  font-weight: 800;
+  color: #dcdcdc;
   text-decoration: none;
+  position: relative;
+  letter-spacing: 0.6px;
   transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: #b8860b;
+/* underline hover */
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #f2c35a;
+  transition: width 0.3s ease;
 }
 
-/* CONTACT */
+.footer-links a:hover {
+  color: #f2c35a;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* =========================================================
+   CONTACT INFO
+   ========================================================= */
+
 .footer-contact {
   text-align: right;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #aaa;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #d0d0d0;
 }
 
-/* BOTTOM */
+/* =========================================================
+   BOTTOM STRIP
+   ========================================================= */
+
 .footer-bottom-simple {
   margin-top: 22px;
-  padding: 14px 10px;
+  padding: 18px 10px;
   text-align: center;
-  font-size: 12px;
-  color: #777;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+  color: #bfbfbf;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes footerFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
   .footer-inner {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 20px;
+    gap: 30px;
   }
 
   .footer-brand {
@@ -95,5 +181,32 @@
 
   .footer-contact {
     text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .footer-brand img {
+    width: 150px;
+  }
+
+  .footer-brand h4 {
+    font-size: 18px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .footer-bottom-simple {
+    font-size: 12px;
   }
 }

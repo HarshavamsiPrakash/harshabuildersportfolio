@@ -1,5 +1,10 @@
-/* ===================== GLOBAL RESET ===================== */
-* {
+/* =========================================================
+   GLOBAL RESET – CLEAN FOUNDATION
+   ========================================================= */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,21 +16,179 @@ html {
 
 body {
   font-family: "Manrope", "Segoe UI", Arial, sans-serif;
-  background-color: #1c1c1c;
-  color: white;
+  background: #0b0b0b;
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
-/* SECTION HEADINGS (USED EVERYWHERE) */
+/* =========================================================
+   THEME VARIABLES – BRAND SYSTEM
+   ========================================================= */
+
+:root {
+  --blue-main: #0a2a43;
+  --blue-dark: #061b2c;
+
+  --gold-main: #f2c35a;
+  --gold-dark: #c9961a;
+
+  --maroon-main: #7b0d1e;
+
+  --dark-bg: #0b0b0b;
+  --light-bg: #f6f6f6;
+
+  --text-dark: #1b1b1b;
+  --text-muted: #6f6f6f;
+}
+
+/* =========================================================
+   GLOBAL SECTIONS
+   ========================================================= */
+
+section {
+  position: relative;
+  width: 100%;
+}
+
+/* Light sections (About, Services, Testimonials etc.) */
+.section-light {
+  background: var(--light-bg);
+  color: var(--text-dark);
+}
+
+/* Dark sections (Hero, Projects, Footer etc.) */
+.section-dark {
+  background: var(--dark-bg);
+  color: #ffffff;
+}
+
+/* =========================================================
+   SECTION TITLES – HEAVY PREMIUM STYLE
+   ========================================================= */
+
 .section-title {
   text-align: center;
-  font-size: 36px;
-  font-weight: 800;
-  margin-bottom: 8px;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  color: var(--blue-main);
+  margin-bottom: 14px;
+  position: relative;
 }
+
+/* GOLD + MAROON UNDERLINE */
+.section-title::after {
+  content: "";
+  width: 90px;
+  height: 5px;
+  display: block;
+  margin: 16px auto 0;
+  background: linear-gradient(
+    90deg,
+    var(--maroon-main),
+    var(--gold-main),
+    var(--gold-dark)
+  );
+  border-radius: 4px;
+}
+
+/* =========================================================
+   SECTION SUBTITLE
+   ========================================================= */
 
 .section-subtitle {
   text-align: center;
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 60px;
+  max-width: 820px;
+  margin: 0 auto 80px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   GLOBAL LINKS & BUTTON RESET
+   ========================================================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* =========================================================
+   PREMIUM MOTION – GLOBAL SMOOTHNESS
+   ========================================================= */
+
+* {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* =========================================================
+   TEXT SELECTION – BRAND DETAIL
+   ========================================================= */
+
+::selection {
+  background: var(--gold-main);
+  color: #000;
+}
+
+/* =========================================================
+   SCROLLBAR – DESKTOP POLISH
+   ========================================================= */
+
+@media (min-width: 900px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      var(--gold-main),
+      var(--gold-dark)
+    );
+    border-radius: 6px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE TYPOGRAPHY
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 34px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 28px;
+    letter-spacing: 0.6px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+  }
 }

@@ -1,37 +1,50 @@
+// import logo from "../assets/company-logo.png";
 
+// export default function Header() {
+//   return (
+//     <header className="home-header">
+//       <div className="home-header-container">
+//         <div className="home-logo">
+//           <img src={logo} alt="Shri Harsha Associates" />
+//         </div>
 
-import { useEffect, useState } from "react";
+//         <nav className="home-nav">
+//           <a href="#home">Home</a>
+//           <a href="#about">About</a>
+//           <a href="#services">Services</a>
+//           <a href="#projects">Projects</a>
+//           <a href="#contact">Contact</a>
+//         </nav>
+//       </div>
+//     </header>
+//   );
+// }
+
+import logo from "../assets/company-logo.png";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header className={`header ${scrolled ? "header-scrolled" : ""}`}>
+    <header className="site-header">
       <div className="header-container">
 
-        {/* EMPTY LEFT SPACE – REQUIRED FOR CENTER ALIGNMENT */}
-        <div className="logo"></div>
+        {/* LEFT – LOGO + COMPANY NAME */}
+        <div className="header-brand">
+          <img src={logo} alt="Shri Harsha Associates Logo" />
 
-        <nav className={`nav ${open ? "open" : ""}`}>
+          <div className="brand-text">
+            <h1>Shri Harsha Associates</h1>
+            <span>Construction & Infrastructure</span>
+          </div>
+        </div>
+
+        {/* RIGHT – NAVIGATION */}
+        <nav className="header-nav">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
-
-        <button className="menu-btn" onClick={() => setOpen(!open)}>
-          ☰
-        </button>
 
       </div>
     </header>

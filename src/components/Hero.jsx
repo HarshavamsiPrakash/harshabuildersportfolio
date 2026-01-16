@@ -1,65 +1,67 @@
+// export default function Hero() {
+//   return (
+//     <section className="hero" id="home">
+//       <div className="hero-bg"></div>
+//       <div className="hero-overlay"></div>
 
+//       <div className="hero-content">
+//         <h1>
+//           SHRI HARSHA <span>ASSOCIATES</span>
+//         </h1>
 
-import { useEffect, useState } from "react";
+//         <h2>Trusted Construction & Infrastructure Solutions</h2>
+
+//         <p>
+//           We deliver high-quality residential, commercial, and infrastructure
+//           projects with uncompromised engineering standards, strict safety
+//           practices, and reliable on-time execution.
+//         </p>
+
+//         <div className="hero-actions">
+//           <a href="#projects" className="btn primary">View Projects</a>
+//           <a href="#contact" className="btn secondary">Get Consultation</a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 
 export default function Hero() {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setShow(true), 200);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
-    <section className="hero-final" id="home">
+    <section className="home-hero" id="home">
+      {/* MAIN BACKGROUND IMAGE */}
+      <div className="home-hero-bg"></div>
 
-      {/* BLURRED BACKGROUND IMAGE */}
-      <div className="hero-bg-image"></div>
+      {/* GOLD OVERLAY */}
+      <div className="home-hero-overlay"></div>
 
-      {/* DARK + GOLD OVERLAY */}
-      <div className="hero-bg-overlay"></div>
+      {/* SECOND IMAGE / ACCENT LAYER */}
+      <div className="home-hero-accent"></div>
 
-      {/* CONTENT */}
-      <div className={`hero-final-content ${show ? "active" : ""}`}>
+      {/* HERO CONTENT */}
+      <div className="home-hero-content">
+        {/* COMPANY NAME */}
+        <h4 className="home-company-name">
+          SHRI HARSHA ASSOCIATES
+        </h4>
 
+        {/* MAIN HEADING */}
         <h1>
-          SHRI HARSHA <br />
-          <span>ASSOCIATES</span>
+          BUILDING YOUR VISION.
         </h1>
 
-        <h2 className="hero-subtitle">
-          Trusted Construction & Infrastructure Solutions
-        </h2>
-
-        <p className="hero-description">
+        {/* DESCRIPTION */}
+        <p>
           We deliver high-quality residential, commercial, and infrastructure
-          projects with uncompromised engineering standards, strict safety
-          practices, and reliable on-time execution.
+          projects with precision engineering and uncompromised standards.
         </p>
 
-        <div className="hero-actions">
-          <a href="#projects" className="hero-btn primary">
-            View Projects
-          </a>
-          <a href="#contact" className="hero-btn secondary">
-            Get Consultation
-          </a>
-        </div>
-
-        <div className="hero-trust">
-          <span>Since 2013</span>
-          <span>Quality Assured</span>
-          <span>On-Time Delivery</span>
-          <span>Trusted Engineering</span>
-        </div>
-
+        {/* CTA */}
+        <a href="#contact" className="home-cta">
+          REQUEST A QUOTE
+        </a>
       </div>
-
-      {/* SCROLL INDICATOR */}
-      <div className="scroll-indicator">
-        <span></span>
-      </div>
-
     </section>
   );
 }

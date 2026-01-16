@@ -66,6 +66,8 @@ import "./styles/stats.css";
 import "./styles/testimonials.css";
 import "./styles/contact.css";
 import "./styles/footer.css";
+import "./styles/home.css";
+
 
 /* ===================== FLOATING UI ===================== */
 import "./styles/floating-ui.css";
