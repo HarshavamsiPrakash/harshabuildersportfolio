@@ -1,9 +1,7 @@
 /* =========================================================
-   GLOBAL FOUNDATION – MOBILE-FIRST PREMIUM
-   Brand: Construction / Infrastructure
+   GLOBAL RESET – CLEAN FOUNDATION
    ========================================================= */
 
-/* ===================== RESET ===================== */
 *,
 *::before,
 *::after {
@@ -14,76 +12,104 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
   background: #0b0b0b;
   color: #ffffff;
   overflow-x: hidden;
-  line-height: 1.6;
 }
 
-/* ===================== BRAND VARIABLES ===================== */
+/* =========================================================
+   THEME VARIABLES – BRAND SYSTEM
+   ========================================================= */
+
 :root {
-  /* Brand */
-  --navy: #0a2a43;
-  --navy-dark: #071d30;
-  --gold: #f2c35a;
+  --blue-main: #0a2a43;
+  --blue-dark: #061b2c;
+
+  --gold-main: #f2c35a;
   --gold-dark: #c9961a;
-  --maroon: #7b0d1e;
 
-  /* Text */
-  --text-dark: #1c1c1c;
+  --maroon-main: #7b0d1e;
+
+  --dark-bg: #0b0b0b;
+  --light-bg: #f6f6f6;
+
+  --text-dark: #1b1b1b;
   --text-muted: #6f6f6f;
-  --text-light: #e6e6e6;
-
-  /* Backgrounds */
-  --bg-dark: #0b0b0b;
-  --bg-light: #f6f6f6;
-
-  /* Motion */
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===================== GLOBAL SECTIONS ===================== */
+/* =========================================================
+   GLOBAL SECTIONS
+   ========================================================= */
+
 section {
+  position: relative;
   width: 100%;
+}
+
+/* Light sections (About, Services, Testimonials etc.) */
+.section-light {
+  background: var(--light-bg);
+  color: var(--text-dark);
+}
+
+/* Dark sections (Hero, Projects, Footer etc.) */
+.section-dark {
+  background: var(--dark-bg);
+  color: #ffffff;
+}
+
+/* =========================================================
+   SECTION TITLES – HEAVY PREMIUM STYLE
+   ========================================================= */
+
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  color: var(--blue-main);
+  margin-bottom: 14px;
   position: relative;
 }
 
-/* ===================== TYPOGRAPHY (MOBILE FIRST) ===================== */
-.section-title {
-  font-size: 26px;
-  font-weight: 900;
-  text-align: center;
-  color: var(--navy);
-  letter-spacing: 0.4px;
-  margin-bottom: 10px;
-}
-
+/* GOLD + MAROON UNDERLINE */
 .section-title::after {
   content: "";
+  width: 90px;
+  height: 5px;
   display: block;
-  width: 64px;
-  height: 3px;
-  margin: 12px auto 0;
-  background: linear-gradient(90deg, var(--maroon), var(--gold));
-  border-radius: 2px;
+  margin: 16px auto 0;
+  background: linear-gradient(
+    90deg,
+    var(--maroon-main),
+    var(--gold-main),
+    var(--gold-dark)
+  );
+  border-radius: 4px;
 }
+
+/* =========================================================
+   SECTION SUBTITLE
+   ========================================================= */
 
 .section-subtitle {
-  max-width: 680px;
-  margin: 0 auto 48px;
   text-align: center;
-  font-size: 14.5px;
+  max-width: 820px;
+  margin: 0 auto 80px;
+  font-size: 17px;
   font-weight: 600;
+  line-height: 1.8;
   color: var(--text-muted);
-  line-height: 1.75;
 }
 
-/* ===================== LINKS & BUTTONS ===================== */
+/* =========================================================
+   GLOBAL LINKS & BUTTON RESET
+   ========================================================= */
+
 a {
   text-decoration: none;
   color: inherit;
@@ -96,62 +122,32 @@ button {
   cursor: pointer;
 }
 
-/* ===================== MOBILE-FRIENDLY SPACING ===================== */
-@media (max-width: 768px) {
-  section {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+/* =========================================================
+   PREMIUM MOTION – GLOBAL SMOOTHNESS
+   ========================================================= */
 
-/* ===================== SCROLL REVEAL (LIGHTWEIGHT) ===================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.7s var(--ease),
-    transform 0.7s var(--ease);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===================== MICRO ANIMATIONS ===================== */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes softFloat {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-4px); }
-  100% { transform: translateY(0); }
-}
-
-/* ===================== GLOBAL TRANSITIONS ===================== */
 * {
   transition:
-    background-color 0.3s var(--ease),
-    color 0.3s var(--ease),
-    transform 0.3s var(--ease),
-    box-shadow 0.3s var(--ease);
+    background-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-/* ===================== SELECTION ===================== */
+/* =========================================================
+   TEXT SELECTION – BRAND DETAIL
+   ========================================================= */
+
 ::selection {
-  background: var(--gold);
+  background: var(--gold-main);
   color: #000;
 }
 
-/* ===================== SCROLLBAR (DESKTOP ONLY) ===================== */
+/* =========================================================
+   SCROLLBAR – DESKTOP POLISH
+   ========================================================= */
+
 @media (min-width: 900px) {
   ::-webkit-scrollbar {
     width: 10px;
@@ -164,34 +160,35 @@ button {
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(
       180deg,
-      var(--gold),
+      var(--gold-main),
       var(--gold-dark)
     );
     border-radius: 6px;
   }
 }
 
-/* ===================== TABLET ===================== */
-@media (min-width: 768px) {
+/* =========================================================
+   RESPONSIVE TYPOGRAPHY
+   ========================================================= */
+
+@media (max-width: 1024px) {
   .section-title {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .section-subtitle {
-    font-size: 15.5px;
+    font-size: 16px;
     margin-bottom: 60px;
   }
 }
 
-/* ===================== DESKTOP ===================== */
-@media (min-width: 1024px) {
+@media (max-width: 600px) {
   .section-title {
-    font-size: 40px;
-    letter-spacing: 1px;
+    font-size: 28px;
+    letter-spacing: 0.6px;
   }
 
   .section-subtitle {
-    font-size: 17px;
-    margin-bottom: 80px;
+    font-size: 15px;
   }
 }
